@@ -93,7 +93,8 @@ namespace DocArchive.Controls
 
       using (var stream = new InMemoryRandomAccessStream())
       {
-        await page.RenderToStreamAsync(stream);
+        var options = new PdfPageRenderOptions { DestinationWidth = 1920 };
+        await page.RenderToStreamAsync( stream, options );
 
         image.BeginInit();
         image.CacheOption = BitmapCacheOption.OnLoad;
